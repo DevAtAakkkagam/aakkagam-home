@@ -106,13 +106,13 @@
 
     :focus-visible { outline: 2px solid var(--cream); outline-offset: 4px; border-radius: 2px; }
 
-    /* Left-anchored editorial column: generous offset from the left edge,
-       open ground to the right on wide screens. */
+    /* Centered column; text stays left-aligned inside it. */
     .page {
       max-width: 46rem;
+      margin-inline: auto;
       padding-block: clamp(3.5rem, 9vh, 6.5rem) clamp(2rem, 5vh, 3.5rem);
       padding-inline:
-        max(clamp(1.5rem, 9vw, 8.5rem), env(safe-area-inset-left))
+        max(1.5rem, env(safe-area-inset-left))
         max(1.5rem, env(safe-area-inset-right));
     }
 
