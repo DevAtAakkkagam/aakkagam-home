@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Aakkagam — a small workshop for quiet software</title>
+  <meta name="description" content="Aakkagam (ஆக்கம், Tamil for 'creation') makes free, quiet software: Skeinos organizes your AI chats, and Aakkagam Games brings ancient board games to the browser.">
+  <link rel="canonical" href="https://aakkagam.com/">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#201b17">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23201b17'/%3E%3Cg fill='%23f2ead9'%3E%3Ccircle cx='10' cy='10' r='2'/%3E%3Ccircle cx='22' cy='10' r='2'/%3E%3Ccircle cx='10' cy='22' r='2'/%3E%3Ccircle cx='22' cy='22' r='2'/%3E%3C/g%3E%3Cpath d='M16 5c4 4 7 7 11 11-4 4-7 7-11 11-4-4-7-7-11-11 4-4 7-7 11-11z' fill='none' stroke='%23f2ead9' stroke-width='1.6'/%3E%3C/svg%3E">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Aakkagam">
+  <meta property="og:title" content="Aakkagam — a small workshop for quiet software">
+  <meta property="og:description" content="Skeinos organizes your AI chats. Aakkagam Games brings ancient board games to the browser. Free, private, no ads.">
+  <meta property="og:url" content="https://aakkagam.com/">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://aakkagam.com/#org",
+        "name": "Aakkagam",
+        "url": "https://aakkagam.com/",
+        "sameAs": ["https://github.com/nannakuhtum"]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://aakkagam.com/#website",
+        "url": "https://aakkagam.com/",
+        "name": "Aakkagam",
+        "description": "A small workshop for quiet software: Skeinos and Aakkagam Games.",
+        "publisher": { "@id": "https://aakkagam.com/#org" }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Alegreya+Sans:wght@400;500&family=Noto+Serif+Tamil:wght@400&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --earth: #201b17;        /* wet ground before dawn */
+      --earth-raised: #2a241f;
+      --rice: #f2ead9;         /* rice-flour line */
+      --rice-dim: #a89a86;
+      --terracotta: #c67a56;   /* games */
+      --thread: #9d9df2;       /* skeinos indigo, lifted for dark ground */
+      --serif: 'Marcellus', 'Iowan Old Style', serif;
+      --tamil: 'Noto Serif Tamil', serif;
+      --sans: 'Alegreya Sans', 'Gill Sans', system-ui, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      background: var(--earth);
+      color: var(--rice);
+      font-family: var(--sans);
+      font-size: 1.0625rem;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    ::selection { background: var(--terracotta); color: var(--earth); }
+
+    .page {
+      width: min(40rem, 100%);
+      padding: 3.5rem 1.5rem 2.5rem;
+      display: grid;
+      justify-items: center;
+      text-align: center;
+    }
+
+    /* --- Kolam mark ------------------------------------------------ */
+    .kolam { width: 108px; height: 108px; margin-bottom: 2rem; }
+
+    .kolam .dot { fill: var(--rice-dim); }
+
+    .kolam .line {
+      fill: none;
+      stroke: var(--rice);
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-dasharray: 700;
+      stroke-dashoffset: 700;
+      animation: draw 2.4s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards;
+    }
+
+    @keyframes draw { to { stroke-dashoffset: 0; } }
+
+    @media (prefers-reduced-motion: reduce) {
+      .kolam .line { animation: none; stroke-dashoffset: 0; }
+    }
+
+    /* --- Wordmark -------------------------------------------------- */
+    h1 {
+      margin: 0;
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: clamp(2.4rem, 8vw, 3.2rem);
+      letter-spacing: 0.06em;
+    }
+
+    .tamil {
+      margin: 0.35rem 0 0;
+      font-family: var(--tamil);
+      font-size: 1.05rem;
+      color: var(--rice-dim);
+    }
+
+    .thesis {
+      margin: 1.4rem 0 0;
+      max-width: 26rem;
+      color: var(--rice-dim);
+    }
+
+    .thesis em { color: var(--rice); font-style: normal; }
+
+    /* --- Project cards --------------------------------------------- */
+    .projects {
+      margin-top: 3rem;
+      width: 100%;
+      display: grid;
+      gap: 1rem;
+      text-align: left;
+    }
+
+    .card {
+      display: block;
+      padding: 1.5rem 1.6rem 1.4rem;
+      border-radius: 14px;
+      background: var(--earth-raised);
+      border: 1px solid color-mix(in oklab, var(--accent) 35%, transparent);
+      text-decoration: none;
+      color: inherit;
+      transition: border-color 200ms ease, transform 200ms ease;
+    }
+
+    .card:hover, .card:focus-visible { border-color: var(--accent); transform: translateY(-2px); }
+
+    .card.skeinos { --accent: var(--thread); }
+    .card.games  { --accent: var(--terracotta); }
+
+    .card h2 {
+      margin: 0;
+      font-family: var(--serif);
+      font-weight: 400;
+      font-size: 1.35rem;
+      letter-spacing: 0.03em;
+      color: var(--accent);
+    }
+
+    .card p { margin: 0.5rem 0 0.9rem; color: var(--rice-dim); }
+
+    .card .go { font-size: 0.95rem; color: var(--rice); }
+    .card .go::after { content: ' \2192'; }
+
+    /* --- Footer ----------------------------------------------------- */
+    footer {
+      margin-top: 3rem;
+      font-size: 0.9rem;
+      color: var(--rice-dim);
+    }
+
+    footer a { color: inherit; text-underline-offset: 0.2em; }
+    footer a:hover, footer a:focus-visible { color: var(--rice); }
+
+    :focus-visible { outline: 2px solid var(--rice); outline-offset: 3px; border-radius: 2px; }
+
+    @media (max-width: 32rem) {
+      .page { padding-top: 2.5rem; }
+      .kolam { width: 88px; height: 88px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- A kolam: one unbroken line looped around a pulli grid. Drawn fresh
+         each morning; erased by the day; drawn again. ஆக்கம் — creation. -->
+    <svg class="kolam" viewBox="0 0 120 120" role="img" aria-label="Kolam mark: a single line looping around a grid of nine dots">
+      <g class="dot">
+        <circle cx="30" cy="30" r="3"/><circle cx="60" cy="30" r="3"/><circle cx="90" cy="30" r="3"/>
+        <circle cx="30" cy="60" r="3"/><circle cx="60" cy="60" r="3"/><circle cx="90" cy="60" r="3"/>
+        <circle cx="30" cy="90" r="3"/><circle cx="60" cy="90" r="3"/><circle cx="90" cy="90" r="3"/>
+      </g>
+      <path class="line" d="
+        M 34 18
+        L 86 18 Q 102 18 102 34 L 102 86 Q 102 102 86 102
+        L 34 102 Q 18 102 18 86 L 18 34 Q 18 18 34 18
+        Z
+        M 68 14
+        L 106 52 Q 114 60 106 68 L 68 106 Q 60 114 52 106
+        L 14 68 Q 6 60 14 52 L 52 14 Q 60 6 68 14
+        Z" />
+    </svg>
+
+    <h1>aakkagam</h1>
+    <p class="tamil">ஆக்கம் — Tamil for “creation”</p>
+
+    <p class="thesis">
+      A small workshop for quiet software: free tools and games,
+      <em>no ads, no accounts, nothing sold</em>.
+    </p>
+
+    <nav class="projects" aria-label="Projects">
+      <a class="card skeinos" href="https://skeinos.aakkagam.com/">
+        <h2>Skeinos</h2>
+        <p>One organized home for all your AI chats. A local-first browser
+           extension that organizes, searches, and saves prompts across Claude,
+           ChatGPT, Gemini, and Perplexity — nothing leaves your device.</p>
+        <span class="go">skeinos.aakkagam.com</span>
+      </a>
+
+      <a class="card games" href="https://games.aakkagam.com/">
+        <h2>Aakkagam Games</h2>
+        <p>Ancient board games, alive in the browser. Terni Lapilli and Tamil
+           kattam for two players on one screen; Archimedes' ostomachion
+           puzzle for one.</p>
+        <span class="go">games.aakkagam.com</span>
+      </a>
+    </nav>
+
+    <footer>
+      <a href="https://github.com/nannakuhtum">GitHub</a> ·
+      <a href="mailto:admin@aakkagam.com">admin@aakkagam.com</a>
+    </footer>
+
+  </div>
+</body>
+</html>
