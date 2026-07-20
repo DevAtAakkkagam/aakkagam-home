@@ -15,7 +15,8 @@ The page will later also exhibit portfolio content: websites and apps built for 
 
 Pure static site — no build step, no framework, no package.json, no tests.
 
-- `index.html` — the entire site: all CSS and SVG inline (kolam mark with draw animation, JSON-LD, OG tags, data-URI favicon)
+- `index.html` — the entire site: all CSS and SVG inline (kolam mark with draw animation, JSON-LD, OG tags)
+- `icon.svg` — favicon as a real file (Google's favicon crawler ignores data URIs)
 - `robots.txt`, `sitemap.xml` — SEO; update `sitemap.xml` `<lastmod>` when content changes
 
 ## Commands
